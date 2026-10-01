@@ -1,0 +1,10 @@
+2026-10-01 11:38:43,364 [INFO] Бот-монитор Freelancehunt запущен.
+2026-10-01 11:38:43,365 [INFO] Сканирование новых проектов...
+2026-10-01 11:38:45,702 [ERROR] Ошибка при отправке в Telegram (ID 1656454): 401 Client Error: Unauthorized for url: https://api.telegram.org/bot8994306357:AAFWegDpkqNIMgC5dLq-y42VU_YyqGT3En8/sendMessage
+2026-10-01 11:38:46,865 [ERROR] Ошибка при отправке в Telegram (ID 1656455): 401 Client Error: Unauthorized for url: https://api.telegram.org/bot8994306357:AAFWegDpkqNIMgC5dLq-y42VU_YyqGT3En8/sendMessage
+2026-10-01 11:38:48,049 [ERROR] Ошибка при отправке в Telegram (ID 1656462): 401 Client Error: Unauthorized for url: https://api.telegram.org/bot8994306357:AAFWegDpkqNIMgC5dLq-y42VU_YyqGT3En8/sendMessage
+2026-10-01 11:40:26,717 [INFO] Бот-монитор Freelancehunt запущен.
+2026-10-01 11:40:26,717 [INFO] Сканирование новых проектов...
+2026-10-01 11:40:30,061 [INFO] Проект #1656454 успешно отправлен в Telegram.
+2026-10-01 11:40:31,290 [INFO] Проект #1656455 успешно отправлен в Telegram.
+2026-10-01 11:40:32,529 [INFO] Проект #1656462 успешно отправлен в Telegram.
