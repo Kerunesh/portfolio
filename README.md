@@ -10,3 +10,4 @@ Live: https://h3yskill-boop.github.io/portfolio/
 | [handyman/](handyman/) | US local-services landing for Google Ads: lead form + click-to-call, sticky mobile call, `dataLayer` events `lead_form_submit`, `click_to_call`, `cta_click` |
 | [countertops/](countertops/) | Countertops & outdoor kitchens landing with an instant price calculator; `quote_calculated`, `lead_form_submit` (estimate attached), `click_to_call`, `gallery_open` |
 | [feed-converter/](feed-converter/?demo=1) | YML (Prom.ua / Horoshop) → Google Merchant RSS feed converter with validation: duplicate ids, missing price/images/description, GTIN checksum, promo text in titles, relative URLs; downloads XML + CSV report |
+| [freelancehunt-bot/](freelancehunt-bot/) | Python bot: new Freelancehunt projects (official API) → Telegram, keyword / stop-word / client filters, no duplicates after restart, retries and 429 handling, token-safe logs, 25 unit tests, stdlib only |
