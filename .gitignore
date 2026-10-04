@@ -1,0 +1,17 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE configurations
+.vscode/
+.idea/
+
+# Generated output Excel files
+products_export_*.xlsx
+*.xlsx
