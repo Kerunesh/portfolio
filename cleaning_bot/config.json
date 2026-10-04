@@ -1,0 +1,12 @@
+{
+  "cleaning_types": {
+    "standard": {"name": "Підтримуюче", "price_per_m2": 50},
+    "general": {"name": "Генеральне", "price_per_m2": 100},
+    "after_repair": {"name": "Після ремонту", "price_per_m2": 150}
+  },
+  "extra_services": {
+    "windows": {"name": "Миття вікон", "price": 400},
+    "fridge": {"name": "Миття холодильника", "price": 300},
+    "balcony": {"name": "Прибирання балкона", "price": 500}
+  }
+}
