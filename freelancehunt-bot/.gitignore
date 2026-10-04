@@ -1,3 +1,5 @@
 sent_projects.db
 bot.log
 __pycache__/
+venv/
+.env
