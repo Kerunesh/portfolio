@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaSPro | Сучасні IT рішення для бізнесу</title>
+    <meta name="description" content="Адаптивний лендінг для презентації SaaS-послуг та збору лідів.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="#" class="logo">SaaS<span>Pro</span></a>
+            
+            <!-- Navigation -->
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link">Головна</a></li>
+                    <li><a href="#services" class="nav-link">Переваги</a></li>
+                    <li><a href="#pricing" class="nav-link">Тарифи</a></li>
+                    <li><a href="#contact" class="nav-link">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <!-- CTA Button & Mobile Burger Menu -->
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-outline hide-on-mobile">Зв'язатися</a>
+                <button class="burger-btn" id="burger-btn" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section class="hero" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Автоматизуйте свій бізнес разом з нами</h1>
+                    <p class="hero-subtitle">Надійний SaaS-сервіс для збільшення продажів та оптимізації процесів. Почніть безкоштовно вже сьогодні.</p>
+                    <div class="hero-buttons">
+                        <a href="#pricing" class="btn btn-primary">Розрахувати вартість</a>
+                        <a href="#services" class="btn btn-secondary">Дізнатись більше</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Visual Placeholder -->
+                    <div class="image-placeholder">Тут буде ілюстрація/Dashboard</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SERVICES SECTION -->
+        <section class="services section-padding" id="services">
+            <div class="container">
+                <h2 class="section-title">Чому обирають нас</h2>
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3 class="service-title">Швидкий старт</h3>
+                        <p class="service-desc">Інтеграція займає менше 15 хвилин без допомоги програміста.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">🔒</div>
+                        <h3 class="service-title">Безпека даних</h3>
+                        <p class="service-desc">Шифрування за стандартом AES-256 та щоденні бекапи.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3 class="service-title">Детальна аналітика</h3>
+                        <p class="service-desc">Відстежуйте KPI вашого бізнесу в режимі реального часу.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PRICING SECTION -->
+        <section class="pricing section-padding bg-light" id="pricing">
+            <div class="container">
+                <h2 class="section-title">Прозорі тарифи</h2>
+                <div class="pricing-grid">
+                    <!-- Pricing Card 1 -->
+                    <div class="pricing-card">
+                        <h3 class="pricing-name">Базовий</h3>
+                        <div class="pricing-price"><span>₴</span>500<span>/міс</span></div>
+                        <ul class="pricing-features">
+                            <li>До 5 користувачів</li>
+                            <li>Базова аналітика</li>
+                            <li>Підтримка по email</li>
+                        </ul>
+                        <button class="btn btn-outline btn-full">Обрати</button>
+                    </div>
+                    <!-- Pricing Card 2 (Popular) -->
+                    <div class="pricing-card popular">
+                        <div class="pricing-badge">Хіт продажів</div>
+                        <h3 class="pricing-name">Pro</h3>
+                        <div class="pricing-price"><span>₴</span>1200<span>/міс</span></div>
+                        <ul class="pricing-features">
+                            <li>До 50 користувачів</li>
+                            <li>Розширена аналітика</li>
+                            <li>Підтримка 24/7</li>
+                            <li>API доступ</li>
+                        </ul>
+                        <button class="btn btn-primary btn-full">Обрати Pro</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CONTACT SECTION -->
+        <section class="contact section-padding" id="contact">
+            <div class="container contact-container">
+                <div class="contact-info">
+                    <h2 class="section-title text-left">Залишилися питання?</h2>
+                    <p class="contact-desc">Залиште заявку, і наш менеджер зв'яжеться з вами протягом 10 хвилин для безкоштовної консультації.</p>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="lead-form" class="form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Ваше ім'я</label>
+                            <input type="text" id="name" name="name" placeholder="Олександр">
+                            <span class="error-msg" id="name-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Номер телефону</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+38 (000) 000-00-00">
+                            <span class="error-msg" id="phone-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Відправити заявку</button>
+                        <p class="form-success" id="form-success">Дякуємо! Ваша заявка успішно відправлена.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="#" class="logo">SaaS<span>Pro</span></a>
+                <p>&copy; 2024 Всі права захищені.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Політика конфіденційності</a>
+                <a href="#">Умови використання</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
