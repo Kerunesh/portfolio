@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quartz, Granite &amp; Marble Countertops in Austin, TX | Aurelle Stone (Demo)</title>
+<meta name="description" content="Custom countertops and outdoor kitchens in Austin, TX. Free in-home measure, fabrication in 10 days, installation in one day. Get an instant price estimate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!--
+  DEMO PROJECT (portfolio). "Aurelle Stone" is a fictional brand; 555-010 numbers are fictional.
+  dataLayer events for GTM -> Google Ads / GA4:
+    quote_calculated   (calculator used: material, sqft, price range)
+    lead_form_submit   (measure request sent)          -> Ads "Lead" conversion
+    click_to_call      (tel: link)                     -> Ads "Phone call from website"
+    gallery_open       (project card opened)           -> engagement signal
+-->
+<script>window.dataLayer = window.dataLayer || [];</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Aurelle Stone & Kitchens (Demo)","telephone":"+1-555-010-3300","areaServed":["Austin","Round Rock","Cedar Park","Georgetown","Pflugerville"],"address":{"@type":"PostalAddress","addressLocality":"Austin","addressRegion":"TX","addressCountry":"US"}}
+</script>
+<style>
+  :root { --ink:#1c1a17; --muted:#6f685f; --line:#e7e1d8; --bg:#faf7f2; --card:#fff; --gold:#b08a4a; --gold-d:#8e6d34; --dark:#161513; --radius:16px; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  a { color:inherit; }
+  body { margin:0; font-family:Inter, system-ui, sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+  h1, h2, h3 { font-family:Fraunces, Georgia, serif; letter-spacing:-.01em; line-height:1.15; }
+  .wrap { max-width:1160px; margin:0 auto; padding:0 20px; }
+  .demo-bar { background:var(--dark); color:#bdb5a8; font-size:13px; text-align:center; padding:6px 12px; }
+  header.top { position:sticky; top:0; z-index:10; background:rgba(250,247,242,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  header.top .wrap { display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px; }
+  .logo { font-family:Fraunces, serif; font-size:22px; font-weight:700; text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav a { margin-left:22px; text-decoration:none; color:var(--muted); font-size:15px; }
+  nav a:hover { color:var(--ink); }
+  .call { font-weight:700; text-decoration:none; white-space:nowrap; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; border:0; border-radius:999px; padding:14px 26px; font:inherit; font-weight:700; cursor:pointer; text-decoration:none; }
+  .btn-gold { background:var(--gold); color:#fff; } .btn-gold:hover { background:var(--gold-d); }
+  .btn-line { border:1.5px solid var(--ink); color:var(--ink); background:transparent; }
+  .hero { position:relative; overflow:hidden; }
+  .hero .wrap { display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; padding:64px 20px 72px; }
+  .eyebrow { text-transform:uppercase; letter-spacing:.14em; font-size:12px; color:var(--gold-d); font-weight:700; }
+  .hero h1 { font-size:clamp(34px,4.6vw,58px); margin:10px 0 18px; }
+  .hero p.lead { font-size:18px; color:var(--muted); margin:0 0 26px; max-width:540px; }
+  .hero .ctas { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px; }
+  .facts { display:flex; gap:28px; flex-wrap:wrap; margin:0; padding:0; list-style:none; }
+  .facts b { display:block; font-family:Fraunces, serif; font-size:26px; }
+  .facts span { color:var(--muted); font-size:14px; }
+  .slab { aspect-ratio:4/5; border-radius:28px; position:relative; overflow:hidden; box-shadow:0 30px 70px rgba(40,30,15,.25);
+    background:
+      radial-gradient(120% 60% at 20% 15%, rgba(255,255,255,.9), transparent 60%),
+      linear-gradient(115deg, transparent 38%, rgba(120,110,100,.35) 39%, transparent 41%),
+      linear-gradient(160deg, transparent 55%, rgba(150,130,100,.3) 56%, transparent 58%),
+      linear-gradient(25deg, transparent 70%, rgba(90,85,80,.25) 71%, transparent 73%),
+      linear-gradient(180deg, #f1ede6, #ddd6cb); }
+  .slab .tag { position:absolute; left:20px; bottom:20px; background:rgba(22,21,19,.82); color:#fff; padding:10px 16px; border-radius:12px; font-size:14px; }
+  section { padding:72px 0; }
+  .t { font-size:clamp(28px,3.2vw,40px); margin:6px 0 10px; }
+  .sub { color:var(--muted); max-width:620px; margin:0 0 34px; }
+  .materials { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .mat { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  .swatch { height:130px; }
+  .sw-quartz { background:linear-gradient(135deg,#f7f6f3,#e9e6e0); }
+  .sw-granite { background:radial-gradient(circle at 20% 30%,#7a6e62 2px,transparent 3px) 0 0/14px 14px, radial-gradient(circle at 70% 60%,#2c2824 2px,transparent 3px) 0 0/11px 11px, linear-gradient(135deg,#a89a89,#6d6157); }
+  .sw-marble { background:linear-gradient(120deg,transparent 45%,rgba(120,120,120,.35) 46%,transparent 48%), linear-gradient(60deg,transparent 60%,rgba(160,150,140,.3) 61%,transparent 63%), linear-gradient(180deg,#fbfaf8,#ecebe8); }
+  .sw-quartzite { background:linear-gradient(100deg,transparent 30%,rgba(176,138,74,.35) 31%,transparent 35%), linear-gradient(180deg,#efe9df,#d8cdbb); }
+  .mat div.b { padding:16px 18px 20px; }
+  .mat h3 { margin:0 0 4px; font-size:20px; }
+  .mat p { margin:0; color:var(--muted); font-size:14px; }
+  .mat .price { margin-top:10px; font-weight:700; }
+  .calc-sec { background:var(--dark); color:#eee7dc; }
+  .calc-sec .sub { color:#a9a196; }
+  .calc { display:grid; grid-template-columns:1fr 1fr; gap:28px; background:#201e1b; border:1px solid #33302b; border-radius:24px; padding:28px; }
+  .calc label { display:block; font-weight:600; margin:0 0 8px; }
+  .calc .row { margin-bottom:20px; }
+  .calc input[type=range] { width:100%; accent-color:var(--gold); }
+  .calc select, .calc input[type=number] { width:100%; padding:12px; border-radius:10px; border:1px solid #3d3a34; background:#161513; color:#eee7dc; font:inherit; }
+  .chips { display:flex; gap:8px; flex-wrap:wrap; }
+  .chips label { font-weight:500; margin:0; display:flex; align-items:center; gap:6px; background:#161513; border:1px solid #3d3a34; padding:8px 12px; border-radius:999px; cursor:pointer; }
+  .result { background:linear-gradient(160deg,#2a2723,#1b1a17); border-radius:18px; padding:26px; display:flex; flex-direction:column; justify-content:space-between; }
+  .result .rng { font-family:Fraunces, serif; font-size:clamp(34px,4vw,48px); color:#fff; }
+  .result small { color:#a9a196; }
+  .result ul { padding-left:18px; color:#cfc6b8; font-size:14px; }
+  .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .proj { border-radius:var(--radius); overflow:hidden; background:var(--card); border:1px solid var(--line); cursor:pointer; text-align:left; padding:0; font:inherit; color:inherit; }
+  .proj .img { height:200px; }
+  .proj div.b { padding:14px 16px 18px; }
+  .proj h3 { margin:0 0 4px; font-size:18px; }
+  .proj p { margin:0; color:var(--muted); font-size:14px; }
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .step { border-top:2px solid var(--gold); padding-top:16px; }
+  .step b { font-family:Fraunces, serif; color:var(--gold-d); font-size:15px; }
+  .step h3 { margin:6px 0; font-size:20px; }
+  .step p { margin:0; color:var(--muted); font-size:15px; }
+  .lead-sec .wrap { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+  form.card { background:var(--card); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:0 20px 50px rgba(40,30,15,.08); }
+  form.card label { display:block; font-weight:600; font-size:14px; margin:12px 0 6px; }
+  form.card input, form.card select, form.card textarea { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:12px; font:inherit; background:#fdfcfa; }
+  form.card .btn { width:100%; margin-top:18px; }
+  .ok { display:none; margin-top:14px; background:#f3ecdf; border-radius:12px; padding:14px; color:var(--gold-d); font-weight:600; }
+  details { border-bottom:1px solid var(--line); padding:14px 0; }
+  summary { font-weight:700; cursor:pointer; }
+  details p { color:var(--muted); margin:8px 0 0; }
+  footer { background:var(--dark); color:#9a9286; font-size:14px; padding:30px 0 90px; }
+  dialog { border:0; border-radius:20px; padding:0; max-width:560px; width:92vw; }
+  dialog .img { height:280px; }
+  dialog .b { padding:20px 22px; }
+  dialog::backdrop { background:rgba(0,0,0,.55); }
+  .sticky { position:fixed; left:12px; right:12px; bottom:12px; display:none; gap:10px; z-index:20; }
+  .sticky .btn { flex:1; box-shadow:0 10px 30px rgba(0,0,0,.25); }
+  @media (max-width:960px) {
+    nav { display:none; }
+    .hero .wrap, .calc, .lead-sec .wrap { grid-template-columns:1fr; }
+    .materials, .steps { grid-template-columns:1fr 1fr; }
+    .projects { grid-template-columns:1fr 1fr; }
+    .slab { aspect-ratio:16/10; }
+    .sticky { display:flex; }
+  }
+  @media (max-width:560px) {
+    .materials, .steps, .projects { grid-template-columns:1fr; }
+    .call span { display:none; }
+    section { padding:52px 0; }
+    .calc { padding:18px; }
+  }
+</style>
+</head>
+<body>
+<div class="demo-bar">Portfolio demo · fictional business “Aurelle Stone” · built by Yurii Aharkov (Google Ads &amp; tracking)</div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">Aurelle <span>Stone</span></a>
+    <nav><a href="#materials">Materials</a><a href="#price">Instant price</a><a href="#projects">Projects</a><a href="#measure">Free measure</a></nav>
+    <a class="call" href="tel:+15550103300" data-track="click_to_call">📞 <span>(555) 010-3300</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding:0">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Austin · Round Rock · Cedar Park</div>
+        <h1>Stone countertops &amp; outdoor kitchens, installed in one day</h1>
+        <p class="lead">Quartz, granite, marble and quartzite cut to a laser template. Free in-home measure, fabrication in 10 days, a clean one-day install.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="#price" data-track="cta_click" data-cta="hero_price">Get an instant price</a>
+          <a class="btn btn-line" href="#measure" data-track="cta_click" data-cta="hero_measure">Book a free measure</a>
+        </div>
+        <ul class="facts">
+          <li><b>10 days</b><span>template to install</span></li>
+          <li><b>1 day</b><span>installation</span></li>
+          <li><b>10 yr</b><span>workmanship warranty</span></li>
+        </ul>
+      </div>
+      <div class="slab"><div class="tag">Calacatta-look quartz · waterfall island</div></div>
+    </div>
+  </section>
+
+  <section id="materials">
+    <div class="wrap">
+      <div class="eyebrow">Materials</div>
+      <h2 class="t">Choose the stone, we handle the rest</h2>
+      <p class="sub">Prices per square foot, installed — template, fabrication, standard edge, sink cutout and sealing included.</p>
+      <div class="materials">
+        <div class="mat"><div class="swatch sw-quartz"></div><div class="b"><h3>Quartz</h3><p>Non-porous, no sealing, the most popular choice for busy kitchens.</p><div class="price">$55–95 / sq ft</div></div></div>
+        <div class="mat"><div class="swatch sw-granite"></div><div class="b"><h3>Granite</h3><p>Natural, heat-resistant, every slab unique. Great for outdoor kitchens.</p><div class="price">$45–85 / sq ft</div></div></div>
+        <div class="mat"><div class="swatch sw-marble"></div><div class="b"><h3>Marble</h3><p>Classic veining for islands and baths. Needs care, worth it.</p><div class="price">$75–150 / sq ft</div></div></div>
+        <div class="mat"><div class="swatch sw-quartzite"></div><div class="b"><h3>Quartzite</h3><p>Marble look with granite toughness. Premium and durable.</p><div class="price">$80–140 / sq ft</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price" class="calc-sec">
+    <div class="wrap">
+      <div class="eyebrow">Instant price</div>
+      <h2 class="t">Estimate your countertop in 20 seconds</h2>
+      <p class="sub">A ballpark range for budgeting. The final price comes after a free laser measure.</p>
+      <div class="calc">
+        <div>
+          <div class="row"><label for="material">Material</label>
+            <select id="material">
+              <option value="quartz" data-min="55" data-max="95">Quartz</option>
+              <option value="granite" data-min="45" data-max="85">Granite</option>
+              <option value="marble" data-min="75" data-max="150">Marble</option>
+              <option value="quartzite" data-min="80" data-max="140">Quartzite</option>
+            </select></div>
+          <div class="row"><label for="sqft">Countertop area: <span id="sqftOut">45</span> sq ft</label>
+            <input id="sqft" type="range" min="15" max="150" step="5" value="45">
+            <small style="color:#a9a196">Typical kitchen: 35–55 sq ft · with island: 55–80 sq ft</small></div>
+          <div class="row"><label>Extras</label>
+            <div class="chips">
+              <label><input type="checkbox" value="350" data-name="Waterfall edge"> Waterfall edge</label>
+              <label><input type="checkbox" value="250" data-name="Removal of old tops"> Remove old tops</label>
+              <label><input type="checkbox" value="180" data-name="Full-height backsplash" data-sqft="1"> Backsplash</label>
+              <label><input type="checkbox" value="600" data-name="Outdoor kitchen package"> Outdoor kitchen</label>
+            </div></div>
+        </div>
+        <div class="result">
+          <div><small>Estimated installed price</small>
+            <div class="rng" id="range">$2,475 – $4,275</div>
+            <ul id="incl"><li>Template, fabrication, standard edge</li><li>One undermount sink cutout</li><li>Installation &amp; sealing</li></ul></div>
+          <a class="btn btn-gold" href="#measure" id="calcCta" data-track="cta_click" data-cta="calc_measure">Lock this price — book a free measure</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="eyebrow">Projects</div>
+      <h2 class="t">Recent kitchens</h2>
+      <p class="sub">Illustrative project cards for the demo — tap one to see details.</p>
+      <div class="projects">
+        <button class="proj" data-title="Waterfall quartz island" data-text="62 sq ft of Calacatta-look quartz, 2 waterfall ends, mitered edges. Templated Monday, installed 9 days later." data-cls="sw-marble"><div class="img sw-marble"></div><div class="b"><h3>Waterfall quartz island</h3><p>Calacatta-look quartz · 62 sq ft</p></div></button>
+        <button class="proj" data-title="Outdoor kitchen, granite" data-text="Granite top for a 14 ft outdoor kitchen with grill and sink cutouts, sealed for Texas sun." data-cls="sw-granite"><div class="img sw-granite"></div><div class="b"><h3>Outdoor kitchen</h3><p>Leathered granite · 38 sq ft</p></div></button>
+        <button class="proj" data-title="Warm quartzite galley" data-text="Galley kitchen in warm quartzite with a full-height backsplash behind the range." data-cls="sw-quartzite"><div class="img sw-quartzite"></div><div class="b"><h3>Quartzite galley</h3><p>Taj Mahal-look quartzite · 41 sq ft</p></div></button>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">How it works</div>
+      <h2 class="t">From quote to dinner in ~2 weeks</h2>
+      <div class="steps" style="margin-top:28px">
+        <div class="step"><b>01</b><h3>Instant price</h3><p>Use the calculator or call — get a range in minutes.</p></div>
+        <div class="step"><b>02</b><h3>Free laser measure</h3><p>We template your cabinets and confirm the final price.</p></div>
+        <div class="step"><b>03</b><h3>Pick your slab</h3><p>Choose the exact slab in our yard or by video call.</p></div>
+        <div class="step"><b>04</b><h3>One-day install</h3><p>Old tops out, new tops in, sink connected, sealed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="measure" class="lead-sec">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Free measure</div>
+        <h2 class="t">Book a free in-home measure</h2>
+        <p class="sub">We confirm a 2-hour window by phone. No obligation — you get a fixed price in writing.</p>
+        <details><summary>Do you remove the old countertops?</summary><p>Yes — removal and disposal is an add-on, priced in the calculator.</p></details>
+        <details><summary>Can you do outdoor kitchens?</summary><p>Yes, granite and quartzite tops for outdoor kitchens, sealed for UV and heat.</p></details>
+        <details><summary>How long until install?</summary><p>Usually 10 days from template to install; rush slots are available.</p></details>
+      </div>
+      <form class="card" id="leadForm" novalidate>
+        <label for="fname">Name</label><input id="fname" name="fname" autocomplete="name" required>
+        <label for="fphone">Phone</label><input id="fphone" name="fphone" type="tel" autocomplete="tel" required placeholder="(555) 000-0000">
+        <label for="fproject">Project</label>
+        <select id="fproject" name="fproject"><option>Kitchen countertops</option><option>Kitchen + island</option><option>Outdoor kitchen</option><option>Bathroom vanity</option></select>
+        <label for="fzip">ZIP code</label><input id="fzip" name="fzip" inputmode="numeric" maxlength="5" placeholder="78701">
+        <input type="hidden" id="fest" name="estimate">
+        <button class="btn btn-gold" type="submit">Request my free measure</button>
+        <div class="ok" id="ok">Thank you! In the demo nothing is sent — on a live site this fires the <b>lead_form_submit</b> conversion (with the calculator estimate attached).</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Aurelle Stone &amp; Kitchens is a fictional business created as a portfolio demo. Page structure, calculator and conversion tracking by Yurii Aharkov.</div></footer>
+
+<div class="sticky"><a class="btn btn-gold" href="#price" data-track="cta_click" data-cta="sticky_price">Instant price</a><a class="btn btn-line" style="background:#fff" href="tel:+15550103300" data-track="click_to_call">Call</a></div>
+
+<dialog id="dlg"><div class="img" id="dlgImg"></div><div class="b"><h3 id="dlgTitle"></h3><p id="dlgText" style="color:#6f685f"></p><button class="btn btn-line" onclick="this.closest('dialog').close()">Close</button></div></dialog>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return '$' + (Math.round(n / 25) * 25).toLocaleString('en-US'); };
+  var material = $('material'), sqft = $('sqft'), extras = document.querySelectorAll('.chips input');
+  var lastEstimate = '', calcTimer = null;
+
+  function calc() {
+    var opt = material.options[material.selectedIndex], area = +sqft.value;
+    var min = area * +opt.dataset.min, max = area * +opt.dataset.max, items = [];
+    extras.forEach(function (x) {
+      if (!x.checked) return;
+      var add = +x.value * (x.dataset.sqft ? area / 30 : 1);
+      min += add; max += add; items.push(x.dataset.name);
+    });
+    $('sqftOut').textContent = area;
+    $('range').textContent = fmt(min) + ' – ' + fmt(max);
+    $('incl').innerHTML = '<li>Template, fabrication, standard edge</li><li>One undermount sink cutout</li><li>Installation &amp; sealing</li>' +
+      items.map(function (i) { return '<li>' + i + '</li>'; }).join('');
+    lastEstimate = opt.value + ', ' + area + ' sq ft, ' + fmt(min) + '-' + fmt(max);
+    $('fest').value = lastEstimate;
+    // debounce analytics: one event after the user stops moving the slider
+    clearTimeout(calcTimer);
+    calcTimer = setTimeout(function () {
+      window.dataLayer.push({ event: 'quote_calculated', material: opt.value, sqft: area, price_min: Math.round(min), price_max: Math.round(max) });
+    }, 800);
+  }
+  [material, sqft].forEach(function (el) { el.addEventListener('input', calc); });
+  extras.forEach(function (el) { el.addEventListener('change', calc); });
+  calc();
+
+  document.querySelectorAll('[data-track]').forEach(function (el) {
+    el.addEventListener('click', function () { window.dataLayer.push({ event: el.dataset.track, cta: el.dataset.cta || null }); });
+  });
+
+  document.querySelectorAll('.proj').forEach(function (card) {
+    card.addEventListener('click', function () {
+      $('dlgTitle').textContent = card.dataset.title;
+      $('dlgText').textContent = card.dataset.text;
+      $('dlgImg').className = 'img ' + card.dataset.cls;
+      $('dlg').showModal();
+      window.dataLayer.push({ event: 'gallery_open', project: card.dataset.title });
+    });
+  });
+
+  $('leadForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, phone = f.fphone.value.replace(/\D/g, '');
+    if (!f.fname.value.trim()) return f.fname.focus();
+    if (phone.length < 10) return f.fphone.focus();
+    window.dataLayer.push({ event: 'lead_form_submit', form_id: 'measure', project: f.fproject.value, estimate: lastEstimate });
+    $('ok').style.display = 'block';
+    f.querySelector('button').disabled = true;
+  });
+})();
+</script>
+</body>
+</html>

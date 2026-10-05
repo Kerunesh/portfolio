@@ -1,0 +1,15 @@
+{
+  "telegram_bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
+  "telegram_chat_id": "YOUR_TELEGRAM_CHAT_ID",
+  "freelancehunt_token": "YOUR_FREELANCEHUNT_TOKEN_OPTIONAL",
+  "keywords": ["google ads", "seo", "merchant", "wordpress", "horoshop", "парсер", "парсинг", "бот", "python", "php"],
+  "stop_words": ["дизайн", "відео", "видео", "логотип", "казино"],
+  "skip_employers": [],
+  "skill_ids": [],
+  "skip_personal": true,
+  "check_interval_seconds": 300,
+  "max_pages_per_check": 3,
+  "first_run_limit": 3,
+  "state_file": "data/state.json",
+  "log_file": "logs/bot.log"
+}

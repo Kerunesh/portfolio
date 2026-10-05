@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YML → Google Merchant: конвертер фідів Prom / Horoshop (демо)</title>
+<meta name="description" content="Перетворює YML-фід Prom.ua / Horoshop у фід Google Merchant Center (RSS 2.0) і показує помилки, через які товари відхилять. Усе працює в браузері.">
+<style>
+  :root { --ink:#16202a; --muted:#5f6f7c; --line:#e2e8ed; --bg:#f4f7f9; --card:#fff; --blue:#1a73e8; --green:#188038; --red:#d93025; --amber:#b06000; --radius:14px; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--ink); background:var(--bg); line-height:1.5; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 20px; }
+  .demo-bar { background:#16202a; color:#c7d2da; font-size:13px; text-align:center; padding:6px 12px; }
+  header { background:var(--card); border-bottom:1px solid var(--line); }
+  header .wrap { padding:22px 20px; }
+  h1 { margin:0 0 6px; font-size:clamp(24px,3vw,32px); letter-spacing:-.02em; }
+  header p { margin:0; color:var(--muted); max-width:760px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:22px 0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:20px; }
+  .card h2 { margin:0 0 12px; font-size:18px; }
+  label.lbl { display:block; font-weight:600; font-size:14px; margin:12px 0 6px; }
+  input[type=text], input[type=url], select, textarea { width:100%; font:inherit; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:#fbfcfd; }
+  textarea { font-family:ui-monospace, Consolas, monospace; font-size:12.5px; height:220px; resize:vertical; }
+  .drop { border:2px dashed #c3ced6; border-radius:12px; padding:18px; text-align:center; color:var(--muted); cursor:pointer; }
+  .drop.over { border-color:var(--blue); background:#eef4fe; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .btn { border:0; border-radius:10px; padding:11px 18px; font:inherit; font-weight:700; cursor:pointer; }
+  .btn-blue { background:var(--blue); color:#fff; } .btn-blue:disabled { opacity:.5; cursor:default; }
+  .btn-light { background:#e8eef3; color:var(--ink); }
+  .opts { display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:0 0 18px; }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; }
+  .stat b { display:block; font-size:26px; }
+  .stat span { color:var(--muted); font-size:13px; }
+  .ok b { color:var(--green); } .warn b { color:var(--amber); } .err b { color:var(--red); }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f0f4f7; font-size:13px; }
+  .pill { display:inline-block; font-size:12px; font-weight:700; border-radius:999px; padding:2px 9px; }
+  .p-err { background:#fce8e6; color:var(--red); } .p-warn { background:#fef0d9; color:var(--amber); } .p-ok { background:#e6f4ea; color:var(--green); }
+  .tabs { display:flex; gap:6px; margin-bottom:12px; }
+  .tabs button { border:1px solid var(--line); background:var(--card); border-radius:999px; padding:7px 14px; font:inherit; cursor:pointer; }
+  .tabs button.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+  pre { background:#0f1720; color:#d6e2ea; border-radius:12px; padding:16px; overflow:auto; max-height:420px; font-size:12.5px; }
+  .hidden { display:none; }
+  .scroll { overflow:auto; max-height:460px; }
+  footer { color:var(--muted); font-size:13px; padding:30px 0; }
+  @media (max-width:900px) { .grid2, .opts { grid-template-columns:1fr; } .stats { grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="demo-bar">Демо-інструмент для портфоліо · Юрій Агарков (Google Ads, Merchant Center, трекінг) · файли обробляються лише у вашому браузері</div>
+<header><div class="wrap">
+  <h1>YML → Google Merchant: конвертер і перевірка фіду</h1>
+  <p>Завантажте YML-фід із Prom.ua або Horoshop (формат yml_catalog). Інструмент зробить фід для Google Merchant Center (RSS 2.0 з g:-полями) і покаже, які товари Google відхилить і чому.</p>
+</div></header>
+
+<main class="wrap">
+  <div class="grid2">
+    <section class="card">
+      <h2>1. Вихідний фід</h2>
+      <div class="drop" id="drop">Перетягніть .xml / .yml файл сюди або <u>оберіть файл</u><input type="file" id="file" accept=".xml,.yml,text/xml" hidden></div>
+      <label class="lbl" for="src">…або вставте XML</label>
+      <textarea id="src" spellcheck="false" placeholder="&lt;yml_catalog&gt;…"></textarea>
+      <div class="row" style="margin-top:10px">
+        <button class="btn btn-light" id="sample">Завантажити приклад</button>
+        <span id="srcInfo" style="color:var(--muted);font-size:13px"></span>
+      </div>
+    </section>
+    <section class="card">
+      <h2>2. Налаштування</h2>
+      <div class="opts">
+        <div><label class="lbl" for="currency">Валюта цін</label>
+          <select id="currency"><option>UAH</option><option>EUR</option><option>USD</option><option>PLN</option></select></div>
+        <div><label class="lbl" for="condition">Стан товарів</label>
+          <select id="condition"><option value="new">new — новий</option><option value="used">used — вживаний</option><option value="refurbished">refurbished — відновлений</option></select></div>
+        <div><label class="lbl" for="brandFallback">Бренд, якщо в товару немає vendor</label>
+          <input type="text" id="brandFallback" placeholder="напр. назва магазину"></div>
+        <div><label class="lbl" for="utm">UTM до посилань (необов'язково)</label>
+          <input type="text" id="utm" placeholder="utm_source=google&utm_medium=shopping"></div>
+        <div><label class="lbl" for="lang">Мова назв</label>
+          <select id="lang"><option value="auto">як у фіді</option><option value="uk">брати name_ua, якщо є</option></select></div>
+        <div><label class="lbl" for="skipNA">Товари не в наявності</label>
+          <select id="skipNA"><option value="keep">залишити як out_of_stock</option><option value="skip">не включати у фід</option></select></div>
+      </div>
+      <div class="row" style="margin-top:18px">
+        <button class="btn btn-blue" id="run">Конвертувати й перевірити</button>
+      </div>
+      <p style="color:var(--muted);font-size:13px;margin:14px 0 0">Що переноситься: id, title, description, link, image_link (+ до 10 додаткових фото), price/sale_price, availability, brand, gtin (barcode), mpn (vendorCode), product_type (шлях категорій), item_group_id (варіанти), condition.</p>
+    </section>
+  </div>
+
+  <section id="result" class="hidden">
+    <div class="stats">
+      <div class="stat"><b id="sTotal">0</b><span>товарів у фіді</span></div>
+      <div class="stat ok"><b id="sOk">0</b><span>без помилок</span></div>
+      <div class="stat warn"><b id="sWarn">0</b><span>з попередженнями</span></div>
+      <div class="stat err"><b id="sErr">0</b><span>буде відхилено</span></div>
+    </div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:10px">
+        <div class="tabs"><button class="on" data-tab="issues">Проблеми</button><button data-tab="summary">Зведення</button><button data-tab="xml">XML для Merchant</button></div>
+        <div class="row"><button class="btn btn-blue" id="dlXml">Завантажити XML</button><button class="btn btn-light" id="dlCsv">Звіт CSV</button></div>
+      </div>
+      <div id="tab-issues" class="scroll"><table><thead><tr><th>ID</th><th>Товар</th><th>Рівень</th><th>Проблема</th></tr></thead><tbody id="issues"></tbody></table></div>
+      <div id="tab-summary" class="hidden"><table><thead><tr><th>Проблема</th><th>Товарів</th><th>Як виправити</th></tr></thead><tbody id="summary"></tbody></table></div>
+      <div id="tab-xml" class="hidden"><pre id="xmlOut"></pre></div>
+    </div>
+  </section>
+  <footer>Демо-проєкт. Правила перевірки спрощені на основі вимог Google Merchant Center до фідів (обов'язкові поля, довжина title/description, формат ціни, зображення, GTIN). Автор: Юрій Агарков.</footer>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var lastXml = '', lastRows = [];
+
+  var SAMPLE = '<?xml version="1.0" encoding="UTF-8"?>\n<yml_catalog date="2026-10-01 10:00">\n<shop>\n<name>Demo Shop</name>\n<url>https://demo-shop.example</url>\n<currencies><currency id="UAH" rate="1"/></currencies>\n<categories>\n<category id="1">Дім</category>\n<category id="11" parentId="1">Кухня</category>\n<category id="2">Іграшки</category>\n</categories>\n<offers>\n' +
+    '<offer id="1001" available="true"><url>https://demo-shop.example/p/1001</url><price>1299</price><oldprice>1599</oldprice><currencyId>UAH</currencyId><categoryId>11</categoryId><picture>https://demo-shop.example/img/1001-1.jpg</picture><picture>https://demo-shop.example/img/1001-2.jpg</picture><vendor>KitchenPro</vendor><vendorCode>KP-12</vendorCode><barcode>4820000000017</barcode><name>Сковорода KitchenPro 28 см з антипригарним покриттям</name><description>Алюмінієва сковорода 28 см, підходить для всіх плит, крім індукційних.</description></offer>\n' +
+    '<offer id="1002" available="false"><url>https://demo-shop.example/p/1002</url><price>349</price><currencyId>UAH</currencyId><categoryId>2</categoryId><picture>https://demo-shop.example/img/1002.jpg</picture><name>Конструктор 120 деталей</name><description>Конструктор для дітей від 5 років.</description></offer>\n' +
+    '<offer id="1003" available="true" group_id="77"><url>https://demo-shop.example/p/1003</url><price>0</price><currencyId>UAH</currencyId><categoryId>11</categoryId><name>Набір ножів 5 шт — ЧЕРВОНИЙ!!! АКЦІЯ!!! КУПУЙ ЗАРАЗ</name><description></description><vendor>KitchenPro</vendor><barcode>123</barcode></offer>\n' +
+    '<offer id="1004" available="true" group_id="77"><url>/p/1004</url><price>899</price><currencyId>UAH</currencyId><categoryId>11</categoryId><picture>http://demo-shop.example/img/1004.webp</picture><name>Набір ножів 5 шт синій</name><description>Нержавіюча сталь, підставка в комплекті.</description><vendor>KitchenPro</vendor></offer>\n' +
+    '<offer id="1001" available="true"><url>https://demo-shop.example/p/1001-dup</url><price>1299</price><currencyId>UAH</currencyId><categoryId>11</categoryId><picture>https://demo-shop.example/img/1001-1.jpg</picture><name>Сковорода дубль</name><description>Дубль ID для перевірки.</description></offer>\n' +
+    '</offers>\n</shop>\n</yml_catalog>';
+
+  // ---------- input ----------
+  var drop = $('drop'), fileInput = $('file');
+  drop.addEventListener('click', function () { fileInput.click(); });
+  drop.addEventListener('dragover', function (e) { e.preventDefault(); drop.classList.add('over'); });
+  drop.addEventListener('dragleave', function () { drop.classList.remove('over'); });
+  drop.addEventListener('drop', function (e) { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]); });
+  fileInput.addEventListener('change', function () { if (fileInput.files[0]) readFile(fileInput.files[0]); });
+  function readFile(f) {
+    var r = new FileReader();
+    r.onload = function () { $('src').value = r.result; $('srcInfo').textContent = f.name + ' · ' + Math.round(f.size / 1024) + ' КБ'; };
+    r.readAsText(f, 'utf-8');
+  }
+  $('sample').addEventListener('click', function () { $('src').value = SAMPLE; $('srcInfo').textContent = 'приклад: 5 товарів з типовими помилками'; });
+
+  // ---------- helpers ----------
+  var txt = function (el, sel) { var n = el.querySelector(sel); return n ? n.textContent.trim() : ''; };
+  var all = function (el, sel) { return Array.prototype.map.call(el.querySelectorAll(sel), function (n) { return n.textContent.trim(); }).filter(Boolean); };
+  var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+  var stripHtml = function (s) { var d = document.createElement('div'); d.innerHTML = s; return (d.textContent || '').replace(/\s+/g, ' ').trim(); };
+  function gtinValid(code) {
+    if (!/^\d{8}$|^\d{12,14}$/.test(code)) return false;
+    var digits = code.split('').map(Number), check = digits.pop(), sum = 0;
+    digits.reverse().forEach(function (d, i) { sum += d * (i % 2 === 0 ? 3 : 1); });
+    return (10 - (sum % 10)) % 10 === check;
+  }
+  function absUrl(u, base) { try { return new URL(u, base).href; } catch (e) { return u; } }
+  function addUtm(u, utm) { if (!utm) return u; return u + (u.indexOf('?') >= 0 ? '&' : '?') + utm.replace(/^[?&]/, ''); }
+
+  // ---------- convert ----------
+  $('run').addEventListener('click', function () {
+    var src = $('src').value.trim();
+    if (!src) { alert('Додайте фід: файл, вставка або приклад.'); return; }
+    var doc = new DOMParser().parseFromString(src, 'application/xml');
+    if (doc.querySelector('parsererror')) { alert('Це не валідний XML: ' + doc.querySelector('parsererror').textContent.slice(0, 200)); return; }
+    var shop = doc.querySelector('shop');
+    if (!shop) { alert('Не знайдено <shop>. Очікується формат yml_catalog (Prom / Horoshop / Rozetka).'); return; }
+
+    var cfg = { cur: $('currency').value, cond: $('condition').value, brand: $('brandFallback').value.trim(), utm: $('utm').value.trim(), lang: $('lang').value, skipNA: $('skipNA').value === 'skip' };
+    var base = txt(shop, 'url') || 'https://example.com';
+    var cats = {};
+    shop.querySelectorAll('categories > category').forEach(function (c) { cats[c.getAttribute('id')] = { name: c.textContent.trim(), parent: c.getAttribute('parentId') }; });
+    var catPath = function (id) { var p = [], guard = 0; while (id && cats[id] && guard++ < 10) { p.unshift(cats[id].name); id = cats[id].parent; } return p.join(' > '); };
+
+    var seen = {}, items = [], rows = [];
+    shop.querySelectorAll('offers > offer').forEach(function (o) {
+      var id = o.getAttribute('id') || '';
+      var name = (cfg.lang === 'uk' && txt(o, 'name_ua')) || txt(o, 'name') || txt(o, 'model');
+      var desc = stripHtml((cfg.lang === 'uk' && txt(o, 'description_ua')) || txt(o, 'description'));
+      var avail = (o.getAttribute('available') || 'true') !== 'false';
+      var price = parseFloat((txt(o, 'price') || '0').replace(',', '.')) || 0;
+      var oldp = parseFloat((txt(o, 'oldprice') || '0').replace(',', '.')) || 0;
+      var pics = all(o, 'picture').map(function (u) { return absUrl(u, base); });
+      var link = txt(o, 'url');
+      var issues = [];
+      var add = function (lvl, msg) { issues.push([lvl, msg]); };
+
+      if (!id) add('err', 'Немає id товару');
+      else if (seen[id]) add('err', 'Дубль id ' + id + ' — Google візьме лише один товар');
+      seen[id] = 1;
+      if (!name) add('err', 'Немає назви (title)');
+      else {
+        if (name.length > 150) add('warn', 'Назва довша за 150 символів — буде обрізана');
+        if (/!{2,}|акці|купуй|знижк|sale/i.test(name) || name === name.toUpperCase() && /[A-ZА-ЯІЇЄ]{6}/.test(name)) add('warn', 'Промо-слова / CAPS у назві — порушення правил редакції');
+      }
+      if (!desc) add('err', 'Порожній опис (description)');
+      else if (desc.length > 5000) add('warn', 'Опис довший за 5000 символів');
+      if (!link) add('err', 'Немає посилання на товар');
+      else if (!/^https?:\/\//.test(link)) { add('warn', 'Відносне посилання — перетворено на ' + absUrl(link, base)); link = absUrl(link, base); }
+      if (!pics.length) add('err', 'Немає фото (image_link)');
+      else {
+        if (/^http:\/\//.test(pics[0])) add('warn', 'Фото по http — краще https');
+      }
+      if (price <= 0) add('err', 'Ціна 0 або відсутня — товар відхилять');
+      if (oldp && oldp <= price) add('warn', 'oldprice ≤ price — знижку не показуємо');
+      var brand = txt(o, 'vendor') || cfg.brand;
+      var gtin = txt(o, 'barcode').replace(/\D/g, '');
+      var mpn = txt(o, 'vendorCode');
+      if (!brand) add('warn', 'Немає бренду (vendor) — гірша видимість у Shopping');
+      if (gtin && !gtinValid(gtin)) { add('warn', 'Невалідний GTIN «' + gtin + '» — не передаємо'); gtin = ''; }
+      if (!gtin && !mpn) add('warn', 'Немає GTIN і MPN — додайте штрихкод або артикул виробника');
+      if (!avail) add(cfg.skipNA ? 'warn' : 'ok', cfg.skipNA ? 'Немає в наявності — виключено з фіду' : 'Немає в наявності — передано як out_of_stock');
+
+      var hasErr = issues.some(function (i) { return i[0] === 'err'; });
+      rows.push({ id: id, name: name, issues: issues, hasErr: hasErr, hasWarn: issues.some(function (i) { return i[0] === 'warn'; }) });
+      if (hasErr || (!avail && cfg.skipNA)) return;
+
+      var useSale = oldp > price;
+      var x = '  <item>\n' +
+        '    <g:id>' + esc(id) + '</g:id>\n' +
+        '    <g:title>' + esc(name.slice(0, 150)) + '</g:title>\n' +
+        '    <g:description>' + esc(desc.slice(0, 5000)) + '</g:description>\n' +
+        '    <g:link>' + esc(addUtm(link, cfg.utm)) + '</g:link>\n' +
+        '    <g:image_link>' + esc(pics[0]) + '</g:image_link>\n' +
+        pics.slice(1, 11).map(function (p) { return '    <g:additional_image_link>' + esc(p) + '</g:additional_image_link>\n'; }).join('') +
+        '    <g:price>' + (useSale ? oldp : price).toFixed(2) + ' ' + cfg.cur + '</g:price>\n' +
+        (useSale ? '    <g:sale_price>' + price.toFixed(2) + ' ' + cfg.cur + '</g:sale_price>\n' : '') +
+        '    <g:availability>' + (avail ? 'in_stock' : 'out_of_stock') + '</g:availability>\n' +
+        '    <g:condition>' + cfg.cond + '</g:condition>\n' +
+        (brand ? '    <g:brand>' + esc(brand) + '</g:brand>\n' : '') +
+        (gtin ? '    <g:gtin>' + gtin + '</g:gtin>\n' : '') +
+        (mpn ? '    <g:mpn>' + esc(mpn) + '</g:mpn>\n' : '') +
+        (!gtin && !mpn ? '    <g:identifier_exists>no</g:identifier_exists>\n' : '') +
+        (catPath(o.querySelector('categoryId') && txt(o, 'categoryId')) ? '    <g:product_type>' + esc(catPath(txt(o, 'categoryId'))) + '</g:product_type>\n' : '') +
+        (o.getAttribute('group_id') ? '    <g:item_group_id>' + esc(o.getAttribute('group_id')) + '</g:item_group_id>\n' : '') +
+        '  </item>\n';
+      items.push(x);
+    });
+
+    lastXml = '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">\n<channel>\n' +
+      '  <title>' + esc(txt(shop, 'name') || 'Feed') + '</title>\n  <link>' + esc(base) + '</link>\n  <description>Google Merchant feed converted from YML</description>\n' +
+      items.join('') + '</channel>\n</rss>\n';
+    lastRows = rows;
+    render(rows, items.length);
+    if (window.dataLayer) window.dataLayer.push({ event: 'feed_converted', items_total: rows.length, items_ok: items.length });
+  });
+
+  // ---------- render ----------
+  var FIX = {
+    'Ціна': 'Перевірте ціну в адмінці; товари без ціни краще приховати з фіду.',
+    'Немає фото': 'Додайте хоча б одне фото від 500×500 px без водяних знаків.',
+    'Порожній опис': 'Опис 500–1000 символів: матеріал, розміри, комплектація.',
+    'Дубль id': 'id має бути унікальним — перевірте вивантаження варіантів.',
+    'Немає GTIN': 'Заповніть штрихкод (barcode) або артикул виробника (vendorCode).',
+    'Промо-слова': 'Приберіть «акція», «!!!», CAPS — це правила редакції Google.',
+    'Невалідний GTIN': 'Штрихкод має 8/12/13/14 цифр і правильну контрольну цифру.',
+    'Немає бренду': 'Заповніть vendor або задайте бренд у налаштуваннях.',
+    'Фото по http': 'Перейдіть на https для зображень.',
+    'Відносне': 'Вивантажуйте повні URL із доменом.'
+  };
+  function render(rows, okCount) {
+    $('result').classList.remove('hidden');
+    $('sTotal').textContent = rows.length;
+    $('sErr').textContent = rows.filter(function (r) { return r.hasErr; }).length;
+    $('sWarn').textContent = rows.filter(function (r) { return !r.hasErr && r.hasWarn; }).length;
+    $('sOk').textContent = rows.filter(function (r) { return !r.hasErr && !r.hasWarn; }).length;
+    var html = '', counts = {};
+    rows.forEach(function (r) {
+      if (!r.issues.length) html += '<tr><td>' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td><span class="pill p-ok">OK</span></td><td>—</td></tr>';
+      r.issues.forEach(function (i) {
+        var cls = i[0] === 'err' ? 'p-err' : i[0] === 'warn' ? 'p-warn' : 'p-ok', lbl = i[0] === 'err' ? 'Помилка' : i[0] === 'warn' ? 'Увага' : 'Інфо';
+        html += '<tr><td>' + esc(r.id) + '</td><td>' + esc(r.name.slice(0, 70)) + '</td><td><span class="pill ' + cls + '">' + lbl + '</span></td><td>' + esc(i[1]) + '</td></tr>';
+        var key = i[1].replace(/[«(—].*$/, '').replace(/ \d+.*$/, '').trim();
+        counts[key] = (counts[key] || 0) + 1;
+      });
+    });
+    $('issues').innerHTML = html;
+    $('summary').innerHTML = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; }).map(function (k) {
+      var fix = ''; Object.keys(FIX).forEach(function (f) { if (k.indexOf(f) === 0) fix = FIX[f]; });
+      return '<tr><td>' + esc(k) + '</td><td>' + counts[k] + '</td><td>' + esc(fix) + '</td></tr>';
+    }).join('');
+    $('xmlOut').textContent = lastXml;
+  }
+
+  document.querySelectorAll('.tabs button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      ['issues', 'summary', 'xml'].forEach(function (t) { $('tab-' + t).classList.toggle('hidden', t !== b.dataset.tab); });
+    });
+  });
+  function download(name, content, type) {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([content], { type: type }));
+    a.download = name; a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+  $('dlXml').addEventListener('click', function () { download('google-merchant-feed.xml', lastXml, 'application/xml'); });
+  $('dlCsv').addEventListener('click', function () {
+    var lines = ['id;title;level;issue'];
+    lastRows.forEach(function (r) { (r.issues.length ? r.issues : [['ok', '']]).forEach(function (i) { lines.push([r.id, r.name, i[0], i[1]].map(function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; }).join(';')); }); });
+    download('feed-report.csv', '﻿' + lines.join('\n'), 'text/csv');
+  });
+
+  // ?demo=1 : load the sample feed and run (used for the portfolio link and screenshots)
+  if (/[?&]demo=1/.test(location.search)) {
+    $('src').value = SAMPLE;
+    $('srcInfo').textContent = 'приклад: 5 товарів з типовими помилками';
+    $('brandFallback').value = 'Demo Shop';
+    $('run').click();
+  }
+})();
+</script>
+</body>
+</html>

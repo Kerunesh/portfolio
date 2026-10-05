@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Portfolio Projects
 
 Привіт! Це мій робочий репозиторій, де зібрані реалізовані проєкти з автоматизації, парсингу даних, розробки Telegram-ботів та веб-верстки. 
@@ -22,3 +23,18 @@ Telegram-бот для автоматичного моніторингу нов�
 - **Backend & Automation:** Python (aiogram, BeautifulSoup, requests, pandas).
 - **Frontend:** HTML5, CSS3 (Flexbox/Grid, Variables), Vanilla JavaScript.
 - **Tools:** Git, GitHub, VS Code.
+=======
+# Portfolio demos — Yurii Aharkov
+
+Demo landing pages and tools (Google Ads, conversion tracking GA4/GTM, Merchant Center, websites).
+All brands are **fictional** and the projects are built for the portfolio.
+
+Live: https://h3yskill-boop.github.io/portfolio/
+
+| Demo | What it shows |
+|---|---|
+| [handyman/](handyman/) | US local-services landing for Google Ads: lead form + click-to-call, sticky mobile call, `dataLayer` events `lead_form_submit`, `click_to_call`, `cta_click` |
+| [countertops/](countertops/) | Countertops & outdoor kitchens landing with an instant price calculator; `quote_calculated`, `lead_form_submit` (estimate attached), `click_to_call`, `gallery_open` |
+| [feed-converter/](feed-converter/?demo=1) | YML (Prom.ua / Horoshop) → Google Merchant RSS feed converter with validation: duplicate ids, missing price/images/description, GTIN checksum, promo text in titles, relative URLs; downloads XML + CSV report |
+| [freelancehunt-bot/](freelancehunt-bot/) | Python bot: new Freelancehunt projects (official API) → Telegram, keyword / stop-word / client filters, no duplicates after restart, retries and 429 handling, token-safe logs, 25 unit tests, stdlib only |
+>>>>>>> fec0501905de526d95b31def0c039e7d99f1c4ee

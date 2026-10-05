@@ -1,5 +1,17 @@
+<<<<<<< HEAD
 sent_projects.db
 bot.log
 __pycache__/
 venv/
 .env
+=======
+# secrets and runtime files
+config.json
+data/
+logs/
+*.log
+*.db
+__pycache__/
+*.pyc
+.venv/
+>>>>>>> fec0501905de526d95b31def0c039e7d99f1c4ee

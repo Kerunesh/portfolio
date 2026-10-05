@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yurii Aharkov — Portfolio Demos</title>
+<meta name="description" content="Demo landing pages and tools by Yurii Aharkov: Google Ads, conversion tracking (GA4/GTM), Merchant Center, websites.">
+<style>
+  :root { --ink:#13202b; --muted:#5b6b78; --line:#e3e8ec; --bg:#f6f8f9; --brand:#f2a516; }
+  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 48px 20px; }
+  h1 { margin:0 0 6px; font-size: clamp(28px,4vw,40px); letter-spacing:-.02em; }
+  p.sub { color:var(--muted); margin:0 0 32px; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:18px; }
+  a.card { display:block; background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; text-decoration:none; color:inherit; }
+  a.card:hover { border-color: var(--brand); }
+  a.card img { width:100%; display:block; aspect-ratio: 16/10; object-fit: cover; object-position: top; border-bottom:1px solid var(--line); }
+  a.card div { padding: 16px; }
+  a.card h2 { margin:0 0 6px; font-size:18px; }
+  a.card p { margin:0; color:var(--muted); font-size:14px; }
+  .tag { display:inline-block; font-size:12px; background:#fff4dc; border-radius:999px; padding:2px 10px; margin-top:10px; }
+  footer { color:var(--muted); font-size:13px; margin-top:40px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Portfolio demos</h1>
+  <p class="sub">Yurii Aharkov — Google Ads, conversion tracking (GA4 / GTM), Merchant Center and websites. All brands below are fictional demos built to show structure and tracking setups.</p>
+  <div class="grid">
+    <a class="card" href="handyman/">
+      <img src="handyman/shot-desktop-hero.png" alt="Handyman landing page demo">
+      <div><h2>Local services landing (US) for Google Ads</h2><p>Lead form + click-to-call above the fold, sticky mobile call button, dataLayer events for Ads/GA4 conversions.</p><span class="tag">HTML · CSS · GTM/GA4</span></div>
+    </a>
+    <a class="card" href="countertops/">
+      <img src="countertops/shot-desktop-hero.png" alt="Countertops landing page demo">
+      <div><h2>Countertops &amp; outdoor kitchens landing with instant price calculator</h2><p>Live price range by material, area and extras; the estimate is attached to the lead and sent to GA4/Ads via dataLayer.</p><span class="tag">HTML · CSS · JS · GTM/GA4</span></div>
+    </a>
+    <a class="card" href="feed-converter/?demo=1">
+      <img src="feed-converter/shot-results.png" alt="YML to Google Merchant feed converter">
+      <div><h2>YML → Google Merchant feed converter &amp; validator</h2><p>Converts Prom.ua / Horoshop YML feeds to a Merchant Center RSS feed and flags items Google would disapprove. Runs fully in the browser.</p><span class="tag">JavaScript · XML · Merchant Center</span></div>
+    </a>
+    <a class="card" href="https://github.com/h3yskill-boop/portfolio/tree/main/freelancehunt-bot">
+      <img src="freelancehunt-bot/docs/telegram-preview.png" alt="Freelancehunt to Telegram bot message preview">
+      <div><h2>Freelancehunt → Telegram project monitor bot</h2><p>Watches new projects via the official Freelancehunt API, filters by keywords, stop words and blocked clients, sends them to Telegram. No duplicates after restart, retries, token-safe logs, 25 unit tests.</p><span class="tag">Python · REST API · Telegram Bot API</span></div>
+    </a>
+  </div>
+  <footer>Contact: Freelancehunt — Yurii Aharkov.</footer>
+</div>
+</body>
+</html>

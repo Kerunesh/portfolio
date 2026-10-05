@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handyman Services in Tampa, FL | Same-Week Repairs | BrightFix (Demo)</title>
+<meta name="description" content="Licensed & insured handyman in Tampa, FL. Drywall, TV mounting, doors, fixtures, small plumbing and electrical. Free estimate in 1 hour. Call (555) 010-2040.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!--
+  DEMO PROJECT (portfolio). BrightFix is a fictional brand, phone 555-010-xxxx is a fictional number.
+  Tracking: put your GTM container ID below. The page pushes these dataLayer events:
+    lead_form_submit  (form sent)        -> Google Ads "Lead" conversion + GA4 key event
+    click_to_call     (tel: link click)  -> Google Ads "Phone call from website" conversion
+    cta_click         (any CTA button)   -> GA4 event for funnel analysis
+-->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  // (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "BrightFix Handyman (Demo)",
+  "telephone": "+1-555-010-2040",
+  "areaServed": ["Tampa", "St. Petersburg", "Brandon", "Clearwater"],
+  "address": {"@type": "PostalAddress", "addressLocality": "Tampa", "addressRegion": "FL", "addressCountry": "US"},
+  "openingHours": "Mo-Sa 07:00-19:00"
+}
+</script>
+<style>
+  :root {
+    --ink: #13202b; --muted: #5b6b78; --line: #e3e8ec; --bg: #f6f8f9; --card: #fff;
+    --brand: #f2a516; --brand-ink: #1b1300; --accent: #0f6e5a; --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .demo-bar { background: #13202b; color: #cfd8de; font-size: 13px; text-align: center; padding: 6px 12px; }
+  header.top { background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .logo b { background: var(--brand); color: var(--brand-ink); border-radius: 8px; padding: 2px 8px; }
+  .phone-top { font-weight: 800; text-decoration: none; white-space: nowrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 10px; font: inherit; font-weight: 800; padding: 14px 22px; cursor: pointer; text-decoration: none; }
+  .btn-primary { background: var(--brand); color: var(--brand-ink); }
+  .btn-primary:hover { filter: brightness(.95); }
+  .btn-ghost { background: transparent; border: 2px solid var(--ink); color: var(--ink); }
+  .hero { background: linear-gradient(135deg, #13202b 0%, #1d3442 100%); color: #fff; }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; padding-top: 56px; padding-bottom: 56px; align-items: center; }
+  .hero h1 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.08; margin: 0 0 16px; letter-spacing: -.03em; }
+  .hero h1 span { color: var(--brand); }
+  .hero p.lead { font-size: 19px; color: #c9d4db; margin: 0 0 24px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 28px; padding: 0; list-style: none; }
+  .badges li { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: 6px 12px; font-size: 14px; }
+  .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero .btn-ghost { color: #fff; border-color: #fff; }
+  .card { background: var(--card); color: var(--ink); border-radius: var(--radius); padding: 26px; box-shadow: 0 20px 50px rgba(0,0,0,.25); }
+  .card h2 { margin: 0 0 4px; font-size: 22px; }
+  .card p { margin: 0 0 18px; color: var(--muted); font-size: 15px; }
+  label { display: block; font-size: 14px; font-weight: 600; margin: 12px 0 6px; }
+  input, select, textarea { width: 100%; font: inherit; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fbfcfc; }
+  input:focus, select:focus, textarea:focus { outline: 3px solid rgba(242,165,22,.35); border-color: var(--brand); }
+  .card .btn { width: 100%; margin-top: 18px; }
+  .fine { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .ok { display: none; background: #e8f6f1; color: var(--accent); border-radius: 10px; padding: 14px; font-weight: 600; margin-top: 14px; }
+  section { padding: 64px 0; }
+  section h2.t { font-size: clamp(26px, 3vw, 36px); margin: 0 0 8px; letter-spacing: -.02em; }
+  section p.sub { color: var(--muted); margin: 0 0 32px; max-width: 640px; }
+  .grid { display: grid; gap: 18px; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .svc { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .svc .ico { width: 44px; height: 44px; border-radius: 12px; background: #fff4dc; display: grid; place-items: center; font-size: 22px; margin-bottom: 12px; }
+  .svc h3 { margin: 0 0 6px; font-size: 18px; }
+  .svc p { margin: 0; color: var(--muted); font-size: 15px; }
+  .svc .from { margin-top: 10px; font-weight: 800; }
+  .why { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .why .item { padding: 6px 0; }
+  .why .item b { display: block; font-size: 30px; color: var(--accent); letter-spacing: -.02em; }
+  .steps { counter-reset: s; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; position: relative; }
+  .step::before { counter-increment: s; content: counter(s); position: absolute; top: -14px; left: 22px; background: var(--brand); color: var(--brand-ink); font-weight: 800; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; }
+  .step h3 { margin: 10px 0 6px; font-size: 17px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+  .review { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .stars { color: var(--brand); letter-spacing: 2px; }
+  .review p { margin: 10px 0 12px; }
+  .review small { color: var(--muted); }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-bottom: 10px; }
+  summary { font-weight: 700; cursor: pointer; }
+  details p { color: var(--muted); margin: 10px 0 0; }
+  .areas { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .areas li { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
+  .final { background: var(--brand); color: var(--brand-ink); text-align: center; }
+  .final h2 { margin: 0 0 8px; font-size: clamp(26px, 3vw, 36px); }
+  .final p { margin: 0 0 22px; }
+  .final .btn { background: var(--ink); color: #fff; }
+  footer { background: #0e1820; color: #9fb0bb; font-size: 14px; padding: 28px 0 90px; }
+  .sticky-call { position: fixed; left: 12px; right: 12px; bottom: 12px; display: none; z-index: 20; }
+  .sticky-call .btn { width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: 1fr; padding-top: 36px; }
+    .g3, .g4 { grid-template-columns: 1fr 1fr; }
+    .sticky-call { display: block; }
+  }
+  @media (max-width: 560px) {
+    .g3, .g4 { grid-template-columns: 1fr; }
+    .phone-top span { display: none; }
+    section { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="demo-bar">Portfolio demo · fictional business “BrightFix” · built by Yurii Aharkov (Google Ads &amp; tracking)</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><b>BF</b> BrightFix Handyman</a>
+    <a class="phone-top" href="tel:+15550102040" data-track="click_to_call">📞 <span>Call </span>(555) 010-2040</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Tampa Handyman for <span>Small Jobs Done Right</span> — This Week</h1>
+        <p class="lead">Drywall, TV mounting, doors, fixtures, small plumbing &amp; electrical. Upfront pricing, a tidy crew and a 1-year workmanship warranty.</p>
+        <ul class="badges">
+          <li>✔ Licensed &amp; insured</li>
+          <li>✔ Free estimate in 1 hour</li>
+          <li>✔ Same-week appointments</li>
+          <li>✔ 1-year warranty</li>
+        </ul>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#estimate" data-track="cta_click" data-cta="hero_estimate">Get a free estimate</a>
+          <a class="btn btn-ghost" href="tel:+15550102040" data-track="click_to_call">Call (555) 010-2040</a>
+        </div>
+      </div>
+
+      <form class="card" id="estimate" novalidate>
+        <h2>Free estimate in 1 hour</h2>
+        <p>Tell us what needs fixing — we reply with a price, not a sales pitch.</p>
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required>
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="(555) 000-0000">
+        <label for="job">What needs to be done?</label>
+        <select id="job" name="job">
+          <option>Drywall repair</option><option>TV mounting</option><option>Doors &amp; locks</option>
+          <option>Light fixtures &amp; fans</option><option>Small plumbing</option><option>Other / several jobs</option>
+        </select>
+        <label for="zip">ZIP code</label>
+        <input id="zip" name="zip" inputmode="numeric" maxlength="5" placeholder="33602">
+        <button class="btn btn-primary" type="submit">Send — get my price</button>
+        <div class="fine">We call back within 1 business hour. No spam, ever.</div>
+        <div class="ok" id="ok">Thanks! In the demo nothing is sent — on a live site this triggers the <b>lead_form_submit</b> conversion.</div>
+      </form>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 class="t">What we fix</h2>
+      <p class="sub">Most jobs take 1–3 hours. One visit, one invoice — bundle several small jobs and save.</p>
+      <div class="grid g3">
+        <div class="svc"><div class="ico">🧱</div><h3>Drywall repair</h3><p>Holes, cracks, water damage patches, texture matching and paint-ready finish.</p><div class="from">from $149</div></div>
+        <div class="svc"><div class="ico">📺</div><h3>TV mounting</h3><p>Any wall type, hidden cables, soundbars and shelves. Level and secure.</p><div class="from">from $129</div></div>
+        <div class="svc"><div class="ico">🚪</div><h3>Doors &amp; locks</h3><p>Sticking doors, new hardware, smart locks, weatherstripping.</p><div class="from">from $99</div></div>
+        <div class="svc"><div class="ico">💡</div><h3>Fixtures &amp; fans</h3><p>Light fixtures, ceiling fans, switches and outlets replacement.</p><div class="from">from $119</div></div>
+        <div class="svc"><div class="ico">🚰</div><h3>Small plumbing</h3><p>Faucets, toilets, garbage disposals, running toilets and leaks.</p><div class="from">from $139</div></div>
+        <div class="svc"><div class="ico">🛠️</div><h3>Honey-do lists</h3><p>A list of small jobs? Book a half or full day and we work through it.</p><div class="from">$349 / half day</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap grid g4">
+      <div class="item"><b>1 hr</b>estimate reply time</div>
+      <div class="item"><b>1 yr</b>workmanship warranty</div>
+      <div class="item"><b>$0</b>trip fee inside the service area</div>
+      <div class="item"><b>7–7</b>Mon–Sat appointments</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="t">How it works</h2>
+      <p class="sub">Three steps, no surprises on the invoice.</p>
+      <div class="grid g3 steps">
+        <div class="step"><h3>Send photos or call</h3><p>Describe the job or text a photo — we confirm what’s needed.</p></div>
+        <div class="step"><h3>Get a fixed price</h3><p>You approve the price before we start. It doesn’t change.</p></div>
+        <div class="step"><h3>We fix &amp; clean up</h3><p>On-time arrival window, tidy work, you pay when you’re happy.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2 class="t">What neighbors say</h2>
+      <p class="sub">Sample reviews for the demo layout.</p>
+      <div class="grid g3">
+        <div class="review"><div class="stars">★★★★★</div><p>“Mounted two TVs and hid every cable. Arrived in the window they promised.”</p><small>Sample review · TV mounting</small></div>
+        <div class="review"><div class="stars">★★★★★</div><p>“Fixed a ceiling patch after a leak — you can’t tell where it was.”</p><small>Sample review · Drywall</small></div>
+        <div class="review"><div class="stars">★★★★★</div><p>“Booked a half day for a list of 7 small things. All done before lunch.”</p><small>Sample review · Honey-do list</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2 class="t">Questions</h2>
+      <details><summary>Are you licensed and insured?</summary><p>Yes — general liability insurance and a local handyman license. Certificates on request.</p></details>
+      <details><summary>Do you charge a trip fee?</summary><p>No trip fee inside the service area. Outside it, a flat $39.</p></details>
+      <details><summary>How fast can you come?</summary><p>Most jobs are scheduled the same week; urgent repairs often next day.</p></details>
+      <details><summary>Do you do large remodels?</summary><p>No — we focus on small and medium jobs, so we can come quickly and price fairly.</p></details>
+      <h2 class="t" style="margin-top:40px">Service area</h2>
+      <ul class="areas"><li>Tampa</li><li>St. Petersburg</li><li>Brandon</li><li>Clearwater</li><li>Riverview</li><li>Wesley Chapel</li></ul>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Got a job that’s been waiting for months?</h2>
+      <p>Get a fixed price in 1 hour — and it’s done this week.</p>
+      <a class="btn" href="#estimate" data-track="cta_click" data-cta="footer_estimate">Get my free estimate</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">BrightFix Handyman is a fictional business created as a portfolio demo. Landing page structure, copy and conversion tracking by Yurii Aharkov.</div>
+</footer>
+
+<div class="sticky-call"><a class="btn btn-primary" href="tel:+15550102040" data-track="click_to_call">📞 Call now — (555) 010-2040</a></div>
+
+<script>
+  // Conversion tracking hooks (GTM picks these up via Custom Event triggers)
+  document.querySelectorAll('[data-track]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      window.dataLayer.push({ event: el.dataset.track, cta: el.dataset.cta || null, link_url: el.getAttribute('href') });
+    });
+  });
+  document.getElementById('estimate').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, name = f.name.value.trim(), phone = f.phone.value.replace(/\D/g, '');
+    if (!name || phone.length < 10) { (name ? f.phone : f.name).focus(); return; }
+    window.dataLayer.push({ event: 'lead_form_submit', form_id: 'estimate', job_type: f.job.value, zip: f.zip.value });
+    document.getElementById('ok').style.display = 'block';
+    f.querySelector('button').disabled = true;
+  });
+</script>
+</body>
+</html>
